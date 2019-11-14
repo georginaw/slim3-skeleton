@@ -11,7 +11,7 @@ class TodoModelFactory
 {
     public function __invoke(ContainerInterface $container)
     {
-        $db = $container->get('id');
-        return $model = new TodoModel($db);
+        $db = $container->get('db');
+        return new TodoModel($db);
     }
 }

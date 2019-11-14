@@ -20,7 +20,7 @@ class TodoModel
     public function getCurrentTodos()
     {
         $db = $this->db;
-        $query = $db->query('SELECT `todoitems` FROM `todos` WHERE `status` = `current`');
+        $query = $db->query('SELECT `todo_name` FROM `todos` WHERE `status` = 0');
         $currentTodos = $query->fetchAll();
         return $currentTodos;
 

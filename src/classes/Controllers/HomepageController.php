@@ -3,9 +3,9 @@
 
 namespace Todoapp\Controllers;
 
-
-use Psr\Container\ContainerInterface;
 use Todoapp\Models\TodoModel;
+use Slim\Http\Request;
+use Slim\Http\Response;
 
 class HomepageController
 {
@@ -23,9 +23,12 @@ class HomepageController
         $this->view = $view;
     }
 
-    public function __invoke(Response $response, Request $request, array $args) {
-        $currentTodos = $this->model-$this->getCurrentTodos();
-        echo gettype($currentTodos);
-        $this->view->render($response, 'homepage.phtml', $currentTodos);
+    public function __invoke(Request $request, Response $response, array $args) {
+        $todoData = $this->model->getCurrentTodos();
+
+
+
+        $display = $this->view->render($response, 'homepage.phtml', ['todos' => $todoData]);
+        return $display;
     }
 }

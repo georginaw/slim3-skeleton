@@ -6,7 +6,6 @@ namespace Todoapp\Factories;
 
 use Psr\Container\ContainerInterface;
 use Todoapp\Controllers\HomepageController;
-use Todoapp\Models\TodoModel;
 
 class HomepageControllerFactory
 {
@@ -14,6 +13,6 @@ class HomepageControllerFactory
     {
         $model = $container->get('TodoModel');
         $view = $container->get('renderer');
-        return $homepageController = new HomepageController($model, $view);
+        return new HomepageController($model, $view);
     }
 }
