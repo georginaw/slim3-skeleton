@@ -26,13 +26,15 @@
         </style>
     </head>
     <body>
-        <h1>Slim</h1>
-        <div>a microframework for PHP</div>
+        <h1>To Do App</h1>
+        <div>Add your to dos and check them off to stay organised</div>
 
-        <?php if (isset($name)) : ?>
-            <h2>Hello <?= htmlspecialchars($name); ?>!</h2>
-        <?php else: ?>
-            <p>Try <a href="http://www.slimframework.com">SlimFramework</a></p>
-        <?php endif; ?>
+
+        <div id="to-do-list">
+            <ul class="todos"><?php foreach ($toDos as $toDoItem) ?>
+                <li><?php echo $toDoItem ?></li>
+                <input type="checkbox" name="<?php $toDoItem ?>-checkbox" value="unchecked">
+            </ul>
+        </div>
     </body>
 </html>
