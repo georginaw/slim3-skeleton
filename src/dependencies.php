@@ -29,5 +29,7 @@ return function (App $app) {
     $container['TodoModel'] = new \Todoapp\Factories\TodoModelFactory();
 
     $container['HomepageController'] = new \Todoapp\Factories\HomepageControllerFactory();
+
+    $container['ValidateAddedTodo'] = new \Todoapp\Factories\ValidateAddedTodoFactory();
     
 };

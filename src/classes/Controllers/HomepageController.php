@@ -23,10 +23,9 @@ class HomepageController
         $this->view = $view;
     }
 
-    public function __invoke(Request $request, Response $response, array $args) {
-        $todoData = $this->model->getCurrentTodos();
 
-        return $this->view->render($response, 'homepage.phtml', ['todos' => $todoData]);
-
-    }
+    public function __invoke(Request $request, Response $response, array $todos) {
+            $todoData = $this->model->getCurrentTodos();
+            return $this->view->render($response, 'homepage.phtml', ['todos' => $todoData]);
+        }
 }
