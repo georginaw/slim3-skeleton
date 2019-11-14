@@ -20,4 +20,11 @@ return function (App $app) {
         return $logger;
     };
 
+    $container['db'] = function() {
+        $db = new PDO('mysql:host=127.0.0.1;dbname=todos', 'root', 'password');
+        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        return $db;
+    };
+
+
 };
