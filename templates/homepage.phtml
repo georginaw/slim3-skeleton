@@ -4,6 +4,7 @@
         <meta charset="utf-8"/>
         <title>Slim 3</title>
         <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <script defer src="/js/script.js"></script>
         <style>
             body {
                 margin: 50px 0 0 0;
@@ -36,7 +37,7 @@
         <div id="to-do-list">
             <ul class="todos"><?php foreach ($todos as $todo) { ?>
                 <li><?php echo $todo["todo_name"]; ?>
-                    <input type="checkbox" name="<?php echo $todo["todo_name"]; ?>-checkbox" value="unchecked">
+                    <input type="checkbox" name="<?php echo $todo["todo_name"]; ?>-checkbox" value="0">
                 </li>
                 <?php } ?>
             </ul>
