@@ -17,9 +17,13 @@ class TodoModel
         $this->db = $db;
     }
 
-    public function getUncompletedTodos()
+    public function getCurrentTodos()
     {
-        // query the db and return $uncompletedTodos
+        $db = $this->db;
+        $query = $db->query('SELECT `todoitems` FROM `todos` WHERE `status` = `current`');
+        $currentTodos = $query->fetchAll();
+        return $currentTodos;
+
     }
 
 }

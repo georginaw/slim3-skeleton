@@ -26,5 +26,7 @@ return function (App $app) {
         return $db;
     };
 
+    $container['TodoModel'] = new \Todoapp\Factories\TodoModelFactory();
+
 
 };
