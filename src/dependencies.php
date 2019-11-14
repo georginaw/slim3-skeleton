@@ -28,5 +28,6 @@ return function (App $app) {
 
     $container['TodoModel'] = new \Todoapp\Factories\TodoModelFactory();
 
+    $container['HomepageController'] = new \Todoapp\Controllers\HomepageControllerFactory();
 
 };
