@@ -28,7 +28,10 @@
     <body>
         <h1>To Do App</h1>
         <div>Add your to dos and check them off to stay organised</div>
-
+        <form id="todoInputForm">
+            <input type="text" placeholder="Enter your todo here">
+            <input type="submit" value="Add todo">
+        </form>
 
         <div id="to-do-list">
             <ul class="todos"><?php foreach ($todos as $todo) { ?>
