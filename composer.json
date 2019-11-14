@@ -7,14 +7,14 @@
     "authors": [
         {
             "name": "Georgina Watson",
-            "email": "",
+            "email": "gwatson.developer@gmail.com",
             "homepage": "https://github.com/georginaw"
         }
     ],
     "require": {
         "php": ">=5.6",
         "slim/slim": "~3.1",
-        "slim/php-view": "~2.0",
+        "slim/php-view": "^2.0",
         "monolog/monolog": "~1.17"
     },
     "require-dev": {
