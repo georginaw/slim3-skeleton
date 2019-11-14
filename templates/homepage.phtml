@@ -32,8 +32,9 @@
 
         <div id="to-do-list">
             <ul class="todos"><?php foreach ($todos as $todo) { ?>
-                <li><?php echo $todo["todo_name"]; ?></li>
-                <input type="checkbox" name="<?php echo $todo["todo_name"]; ?>-checkbox" value="unchecked">
+                <li><?php echo $todo["todo_name"]; ?>
+                    <input type="checkbox" name="<?php echo $todo["todo_name"]; ?>-checkbox" value="unchecked">
+                </li>
                 <?php } ?>
             </ul>
         </div>
