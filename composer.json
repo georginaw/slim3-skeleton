@@ -1,5 +1,5 @@
 {
-    "name": "ToDoApp",
+    "name": "slim/to-do-app",
     "description": "A todo app for busy people but on the Slim Skeleton",
     "keywords": ["microframework", "rest", "router", "psr7"],
     "homepage": "http://github.com/georginaw/slim3-skeleton",
