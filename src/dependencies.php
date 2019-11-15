@@ -34,5 +34,7 @@ return function (App $app) {
     $container['HomepageController'] = new \Todoapp\Factories\HomepageControllerFactory();
 
     $container['AddTodoController'] = new \Todoapp\Factories\AddTodoControllerFactory();
+
+    $container['CompletedController'] = new \Todoapp\Factories\CompletedControllerFactory();
     
 };

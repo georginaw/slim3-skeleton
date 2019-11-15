@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <title>Slim 3</title>
     <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-    <script defer type="text/javascript" src="/public/js/script.js"></script>
+    <script defer type="text/javascript" src="/js/script.js"></script>
     <style>
         body {
             margin: 50px 0 0 0;
@@ -31,9 +31,9 @@
 <div>Your completed todos!</div>
 
 <div id="to-do-list">
-    <ul class="todos"><?php foreach ($todos as $todo) { ?>
-            <li><?php echo $todo["todo_name"]; ?>
-                <input type="button" name="<?php echo $todo["todo_name"]; ?>-delete" value="Delete!">
+    <ul class="todos"><?php foreach ($completedTodos as $completedTodo) { ?>
+            <li><?php echo $completedTodo["todo_name"]; ?>
+                <input type="button" name="<?php echo $completedTodo["todo_name"]; ?>-delete" value="Delete!">
             </li>
         <?php } ?>
     </ul>

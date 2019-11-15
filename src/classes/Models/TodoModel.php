@@ -25,7 +25,6 @@ class TodoModel
         $query = $db->query('SELECT `todo_name` FROM `todos` WHERE `status` = 0');
         $currentTodos = $query->fetchAll();
         return $currentTodos;
-
     }
 
     public function addTodo($todoUserInput)
@@ -34,6 +33,14 @@ class TodoModel
         $query = $db->prepare('INSERT INTO `todos` (todo_name) VALUES (?);');
         $dbResponse = $query->execute([$todoUserInput]);
         return $dbResponse;
+    }
+
+    public function getCompletedTodos()
+    {
+        $db = $this->db;
+        $query = $db->query('SELECT `todo_name` FROM `todos` WHERE `status` = 1');
+        $currentTodos = $query->fetchAll();
+        return $currentTodos;
     }
 
 }

@@ -10,6 +10,6 @@ return function (App $app) {
 
     $app->post('/add', 'AddTodoController');
 
-    
+    $app->get('/completed', 'CompletedController');
 
 };
