@@ -28,16 +28,12 @@
 </head>
 <body>
 <h1>To Do App</h1>
-<div>Add your to dos and check them off to stay organised</div>
-<form id="todoInputForm">
-    <input type="text" placeholder="Enter your todo here">
-    <input type="submit" value="Add todo">
-</form>
+<div>Your completed todos!</div>
 
 <div id="to-do-list">
     <ul class="todos"><?php foreach ($todos as $todo) { ?>
             <li><?php echo $todo["todo_name"]; ?>
-                <input type="checkbox" name="<?php echo $todo["todo_name"]; ?>-checkbox" value="unchecked">
+                <input type="button" name="<?php echo $todo["todo_name"]; ?>-delete" value="Delete!">
             </li>
         <?php } ?>
     </ul>
