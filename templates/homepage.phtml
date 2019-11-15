@@ -29,8 +29,8 @@
     <body>
         <h1>To Do App</h1>
         <div>Add your to dos and check them off to stay organised</div>
-        <form id="todoInputForm">
-            <input type="text" placeholder="Enter your todo here">
+        <form id="todoInputForm" method="post" action="/add">
+            <input type="text" name="todoUserInput" placeholder="Enter your todo here">
             <input type="submit" value="Add todo">
         </form>
 

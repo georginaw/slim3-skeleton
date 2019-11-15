@@ -4,23 +4,29 @@
 namespace Todoapp\Controllers;
 
 
+use Slim\Http\Request;
+use Slim\Http\Response;
+
 class AddTodoController
 {
-    private $addedTodo;
+    private $model;
 
     /**
      * AddTodoController constructor.
-     * @param $addedTodo
+     * @param $model
      */
-    public function __construct($addedTodo)
+    public function __construct($model)
     {
-        $this->addedTodo = $addedTodo;
+        $this->model = $model;
     }
 
-    public function __invoke()
+    public function __invoke(Request $request, Response $response, array $args)
     {
-        // call validator
-        // if valid, return display page render
+        $todoUserInput = $request->getParsedBodyParam('todoUserInput');
+        echo $todoUserInput;
+        $this->model->addTodo($todoUserInput);
+        return $response->withRedirect('/');
     }
+
 
 }

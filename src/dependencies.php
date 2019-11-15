@@ -30,6 +30,8 @@ return function (App $app) {
 
     $container['HomepageController'] = new \Todoapp\Factories\HomepageControllerFactory();
 
-    $container['ValidateAddedTodo'] = new \Todoapp\Factories\ValidateAddedTodoFactory();
+//    $container['AddTodoValidator'] = new \Todoapp\Validators\AddTodoValidator();
+
+    $container['AddTodoController'] = new \Todoapp\Factories\AddTodoControllerFactory();
     
 };

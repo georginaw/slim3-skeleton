@@ -8,5 +8,6 @@ return function (App $app) {
 
     $app->get('/', 'HomepageController');
 
+    $app->post('/add', 'AddTodoController');
 
 };

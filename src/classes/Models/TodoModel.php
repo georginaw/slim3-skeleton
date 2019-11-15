@@ -4,6 +4,8 @@
 namespace Todoapp\Models;
 
 
+use PDO;
+
 class TodoModel
 {
     private $db;
@@ -24,6 +26,14 @@ class TodoModel
         $currentTodos = $query->fetchAll();
         return $currentTodos;
 
+    }
+
+    public function addTodo($todoUserInput)
+    {
+        $db = $this->db;
+        $query = $db->prepare('INSERT INTO `todos` (todo_name) VALUES (?);');
+        $dbResponse = $query->execute([$todoUserInput]);
+        return $dbResponse;
     }
 
 }
