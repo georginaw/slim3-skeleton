@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Todoapp;
+namespace Todoapp\Validators;
 
 
 class AddTodoValidator
 {
-
-    public function validateTodo($todoUserInput) {
-        return true;
+    public static function validateTodo($todoUserInput) {
+        $data = strip_tags(trim($todoUserInput));
+        return ($data && (strlen($data) <= 255));
     }
 
 }

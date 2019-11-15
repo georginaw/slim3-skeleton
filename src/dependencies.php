@@ -2,6 +2,9 @@
 
 use Slim\App;
 
+/**
+ * @param App $app
+ */
 return function (App $app) {
     $container = $app->getContainer();
 
@@ -29,8 +32,6 @@ return function (App $app) {
     $container['TodoModel'] = new \Todoapp\Factories\TodoModelFactory();
 
     $container['HomepageController'] = new \Todoapp\Factories\HomepageControllerFactory();
-
-//    $container['AddTodoValidator'] = new \Todoapp\Validators\AddTodoValidator();
 
     $container['AddTodoController'] = new \Todoapp\Factories\AddTodoControllerFactory();
     

@@ -24,8 +24,17 @@ class HomepageController
     }
 
 
-    public function __invoke(Request $request, Response $response, array $todos) {
-            $todoData = $this->model->getCurrentTodos();
-            return $this->view->render($response, 'homepage.phtml', ['todos' => $todoData]);
+    public function __invoke(Request $request, Response $response, array $args) {
+        $todoData = $this->model->getCurrentTodos();
+        $msg = '';
+
+        if ($request->getQueryParam('error') == 1) {
+            $msg = 'The todo text you entered was not added to the database. Check it\'s not longer than 255 characters';
         }
+
+        $args['todos'] = $todoData;
+        $args['errorMsg'] = $msg;
+        return $this->view->render($response, 'homepage.phtml', $args);
+
+    }
 }
