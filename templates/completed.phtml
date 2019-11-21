@@ -31,12 +31,19 @@
 <div>Your completed todos!</div>
 
 <div id="to-do-list">
-    <ul class="todos"><?php foreach ($completedTodos as $completedTodo) { ?>
-            <li><?php echo $completedTodo["todo_name"]; ?>
-                <input type="button" name="<?php echo $completedTodo["todo_name"]; ?>-delete" value="Delete!">
-            </li>
-        <?php } ?>
-    </ul>
+    <form class="todos" method="post" action="/completed/delete"><?php
+
+        if (count($completedTodos) === 0) {
+            echo '<p>You have no todos to delete</p>';
+        } else {
+            foreach ($completedTodos as $completedTodo) { ?>
+                <p><span><?php echo $completedTodo["todo_name"]; ?>
+                    <input type="submit" value="Delete">
+                <input type="hidden" name="task" value="<?php $completedTodo["id"]; ?>">
+                </span></p>
+            <?php }
+        } ?>
+    </form>
 </div>
 </body>
 </html>

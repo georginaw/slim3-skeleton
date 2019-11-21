@@ -22,7 +22,7 @@ class TodoModel
     public function getCurrentTodos()
     {
         $db = $this->db;
-        $query = $db->query('SELECT `todo_name` FROM `todos` WHERE `status` = 0');
+        $query = $db->query('SELECT `todo_name`, `id` FROM `todos` WHERE `status` = 0 AND `deleted` = 0');
         $currentTodos = $query->fetchAll();
         return $currentTodos;
     }
@@ -38,9 +38,16 @@ class TodoModel
     public function getCompletedTodos()
     {
         $db = $this->db;
-        $query = $db->query('SELECT `todo_name` FROM `todos` WHERE `status` = 1');
+        $query = $db->query('SELECT `todo_name`, `id` FROM `todos` WHERE `status` = 1 AND `deleted` = 0');
         $currentTodos = $query->fetchAll();
         return $currentTodos;
+    }
+
+    public function deleteCompletedTodos($id)
+    {
+        $db = $this->db;
+        $query = $db->prepare('UPDATE `todos` SET `deleted` = 1 WHERE `id` = ?');
+        return $query->execute([$id]);
     }
 
 }
