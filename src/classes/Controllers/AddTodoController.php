@@ -21,7 +21,7 @@ class AddTodoController
         $this->model = $model;
     }
 
-    public function __invoke( Request $request, Response $response, array $args)
+    public function __invoke(Request $request, Response $response, array $args)
     {
         $todoUserInput = $request->getParsedBodyParam('todoUserInput');
         $validate = AddTodoValidator::validateTodo($todoUserInput);

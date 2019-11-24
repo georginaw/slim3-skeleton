@@ -38,5 +38,7 @@ return function (App $app) {
     $container['CompletedController'] = new \Todoapp\Factories\CompletedControllerFactory();
 
     $container['DeleteTodoController'] = new \Todoapp\Factories\DeleteTodoControllerFactory();
-    
+
+    $container['MarkTodoCompleteController'] = new \Todoapp\Controllers\MarkTodoCompleteControllerFactory();
+
 };

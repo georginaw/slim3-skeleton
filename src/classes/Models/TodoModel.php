@@ -21,33 +21,42 @@ class TodoModel
 
     public function getCurrentTodos()
     {
-        $db = $this->db;
-        $query = $db->query('SELECT `todo_name`, `id` FROM `todos` WHERE `status` = 0 AND `deleted` = 0');
-        $currentTodos = $query->fetchAll();
-        return $currentTodos;
+        $query = $this->db->query('SELECT `todo_name`, `id` FROM `todos` WHERE `status` = 0 AND `deleted` = 0');
+        return $query->fetchAll();
     }
 
     public function addTodo($todoUserInput)
     {
-        $db = $this->db;
-        $query = $db->prepare('INSERT INTO `todos` (todo_name) VALUES (?);');
-        $dbResponse = $query->execute([$todoUserInput]);
-        return $dbResponse;
+        $query = $this->db->prepare('INSERT INTO `todos` (todo_name) VALUES (?);');
+        return $query->execute([$todoUserInput]);
     }
 
     public function getCompletedTodos()
     {
-        $db = $this->db;
-        $query = $db->query('SELECT `todo_name`, `id` FROM `todos` WHERE `status` = 1 AND `deleted` = 0');
-        $currentTodos = $query->fetchAll();
-        return $currentTodos;
+        $query = $this->db->query('SELECT `todo_name`, `id` FROM `todos` WHERE `status` = 1 AND `deleted` = 0');
+        return $query->fetchAll();
     }
 
     public function deleteCompletedTodos($id)
     {
-        $db = $this->db;
-        $query = $db->prepare('UPDATE `todos` SET `deleted` = 1 WHERE `id` = ?');
+        $query = $this->db->prepare('UPDATE `todos` SET `deleted` = 1 WHERE `id` = ?');
         return $query->execute([$id]);
+    }
+
+    public function markTodoComplete(array $todos)
+    {
+        $todosLength = count($todos['todo']);
+        $prepareQuery = 'UPDATE `todos` SET `status` = 1 WHERE `id` = ?';
+
+        if ($todosLength > 1) {
+            $prepareQuery = 'UPDATE `todos` SET `status` = 1 WHERE `id` IN (?';
+            for ($i = 1; $i < $todosLength; $i++) {
+                $prepareQuery .= ', ?';
+            }
+            $prepareQuery .= ');';
+        }
+        $query = $this->db->prepare($prepareQuery);
+        return $query->execute($todos['todo']);
     }
 
 }

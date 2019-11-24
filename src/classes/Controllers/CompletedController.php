@@ -28,7 +28,6 @@ class CompletedController
 
         $args['completedTodos'] = $completedTodoData;
         return $this->view->render($response, 'completed.phtml', $args);
-
     }
 
 }

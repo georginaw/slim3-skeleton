@@ -12,6 +12,8 @@ return function (App $app) {
 
     $app->get('/completed', 'CompletedController');
 
-    $app->post('/completed/delete', 'DeleteTodoController');
+    $app->post('/deleteTodo', 'DeleteTodoController');
+
+    $app->post('/markTodoComplete', 'MarkTodoCompleteController');
 
 };

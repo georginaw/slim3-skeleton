@@ -1,18 +1,16 @@
 <?php
 
 
-namespace Todoapp\Factories;
+namespace Todoapp\Controllers;
 
 
 use Psr\Container\ContainerInterface;
-use Todoapp\Controllers\DeleteTodoController;
 
-class DeleteTodoControllerFactory
+class MarkTodoCompleteControllerFactory
 {
     public function __invoke(ContainerInterface $container)
     {
         $model = $container->get('TodoModel');
-        return new DeleteTodoController($model);
+        return new MarkTodoCompleteController($model);
     }
-
 }
