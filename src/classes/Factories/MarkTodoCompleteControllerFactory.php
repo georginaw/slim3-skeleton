@@ -11,6 +11,6 @@ class MarkTodoCompleteControllerFactory
     public function __invoke(ContainerInterface $container)
     {
         $model = $container->get('TodoModel');
-        return new ($model);
+        return new MarkTodoCompleteController($model);
     }
 }
